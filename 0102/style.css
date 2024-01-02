@@ -114,8 +114,15 @@ article p {
   color: #b6b6b6;
   text-align: center;
 }
-
+@media screen and (max-width: 1024px) {
+  .banner h2 {
+    font-size: 54px;
+  }
+}
 @media screen and (max-width: 930px) {
+  .banner .welcome {
+    display: none;
+  }
   .banner h2 {
     font-size: 48px;
   }
