@@ -1,16 +1,40 @@
-function makeAdultNameList(humans) {
-  let filteredHumanList = humans.filter((human) => human.age > 19);
+// forEach 사용하기
+const makeAdultNameList01 = (humans) => {
+  let result = '';
+  humans.forEach((human) => {
+    if (human.age < 20) {
+      return;
+    }
+
+    result += `<li>${human.name}</li>`;
+  });
+};
+
+const makeChildNameList01 = (humans) => {
+  let result = '';
+  humans.forEach((human) => {
+    if (human.age >= 20) {
+      return;
+    }
+
+    return (result += `<li>${human.name}</li>`);
+  });
+};
+
+// map & filter 사용하기
+const makeAdultNameList = (humans) => {
+  let filteredHumanList = humans.filter((human) => human.age >= 20);
   let result = filteredHumanList.map((human) => `<li>${human.name}</li>`);
 
   return result.join('');
-}
+};
 
-function makeChildNameList(humans) {
+const makeChildNameList = (humans) => {
   let filteredHumanList = humans.filter((human) => human.age < 20);
   let result = filteredHumanList.map((human) => `<li>${human.name}</li>`);
 
   return result.join('');
-}
+};
 
 const humanList = [
   {
